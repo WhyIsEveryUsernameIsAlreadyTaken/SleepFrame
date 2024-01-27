@@ -71,10 +71,7 @@ namespace SleepFrame.Macros
                 return;
             if (_index >= _messages.Count)
                 _index = 0;
-
-            // Removes the t typed when not in dojo 
-            Ahk.ExecRaw("Send {BackSpace}");
-            System.Threading.Thread.Sleep(Helper.GetRandomDelay(50, 100));
+            
             // Sends the message
             Ahk.ExecRaw($"SendInput {_messages[_index]}");
             System.Threading.Thread.Sleep(Helper.GetRandomDelay(50, 100));
@@ -83,6 +80,9 @@ namespace SleepFrame.Macros
             System.Threading.Thread.Sleep(Helper.GetRandomDelay(50, 100));
             // Sends the t key to open the chat again
             Ahk.ExecRaw("Send t");
+            // Removes the t typed when not in dojo 
+            Ahk.ExecRaw("Send {BackSpace}");
+            System.Threading.Thread.Sleep(Helper.GetRandomDelay(50, 100));
 
             _index++;
             if (_index >= _messages.Count)
